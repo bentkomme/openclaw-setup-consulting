@@ -1,0 +1,106 @@
+---
+/**
+ * How It Works — 3-step process (book -> prep -> done)
+ */
+const steps = [
+  {
+    number: '1',
+    title: 'Book',
+    description: 'Choose your tier and pick a time that works. Pay securely via Stripe at booking.',
+  },
+  {
+    number: '2',
+    title: 'Prep',
+    description: 'You\'ll receive a confirmation email with a simple prep checklist. Follow the steps so we can hit the ground running.',
+  },
+  {
+    number: '3',
+    title: 'Done',
+    description: 'We meet live. Your OpenClaw agent gets installed, configured, and tested. You walk away with it running.',
+  },
+];
+---
+
+<section id="how-it-works" class="section how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">
+      Three simple steps from booking to a running AI agent.
+    </p>
+    <div class="steps-grid">
+      {steps.map((step) => (
+        <div class="step-card">
+          <div class="step-number">{step.number}</div>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-desc">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: calc(16.67% + 24px);
+    right: calc(16.67% + 24px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    z-index: 0;
+  }
+
+  .step-card {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-number {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-surface-elevated);
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0 auto 20px;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .step-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .steps-grid::before {
+      display: none;
+    }
+  }
+</style>

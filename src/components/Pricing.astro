@@ -1,0 +1,251 @@
+---
+/**
+ * Pricing section — two-tier comparison cards with CTAs
+ * Spec requirements:
+ *   - Setup Call: $149, 60-min screen-share
+ *   - Done-For-You Setup: $399, remote setup + 30-min handoff
+ *   - DFY tier: satisfaction guarantee badge
+ *   - CTAs link to Cal.com scheduling (pre-filtered to tier)
+ */
+
+// Cal.com booking links — replace with actual links when configured
+const SETUP_CALL_LINK = 'https://cal.com/openclaw/setup-call';
+const DFY_SETUP_LINK = 'https://cal.com/openclaw/done-for-you';
+---
+
+<section id="pricing" class="section pricing">
+  <div class="container">
+    <h2 class="section-title">Simple, Transparent Pricing</h2>
+    <p class="section-subtitle">
+      Choose the level of help you need. Both options end with a working OpenClaw agent.
+    </p>
+
+    <div class="pricing-grid">
+      <!-- Tier 1: Setup Call -->
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <h3 class="pricing-tier-name">Setup Call</h3>
+          <div class="pricing-amount">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-value">149</span>
+          </div>
+          <p class="pricing-period">one-time</p>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="pricing-features">
+            <li>60-minute live screen-share session</li>
+            <li>Full OpenClaw installation walkthrough</li>
+            <li>Channel connection (WhatsApp, Telegram, etc.)</li>
+            <li>SOUL.md personality configuration</li>
+            <li>First skill setup and testing</li>
+            <li>You leave with a working agent</li>
+          </ul>
+          <a
+            href={SETUP_CALL_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary btn-large pricing-cta"
+            onclick="trackEvent('cta_click', { tier: 'setup_call', location: 'pricing' }); trackEvent('booking_initiated', { tier: 'setup_call' })"
+          >
+            Book Setup Call
+          </a>
+        </div>
+      </div>
+
+      <!-- Tier 2: Done-For-You Setup -->
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-card-header">
+          <h3 class="pricing-tier-name">Done-For-You Setup</h3>
+          <div class="pricing-amount">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-value">399</span>
+          </div>
+          <p class="pricing-period">one-time</p>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="pricing-features">
+            <li>Founder sets up OpenClaw remotely on your machine</li>
+            <li>Custom SOUL.md personality crafted for you</li>
+            <li>3-5 skills configured and tested</li>
+            <li>One messaging channel fully connected</li>
+            <li>30-minute handoff call to walk you through everything</li>
+            <li>Priority support for 7 days after setup</li>
+          </ul>
+
+          <!-- Satisfaction Guarantee Badge — SPEC REQUIRED -->
+          <div class="guarantee-badge">
+            <span class="guarantee-icon">&#x2714;</span>
+            <div class="guarantee-text">
+              <strong>100% Satisfaction Guaranteed</strong>
+              <span>Full refund if your agent isn't running perfectly</span>
+            </div>
+          </div>
+
+          <a
+            href={DFY_SETUP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-large pricing-cta"
+            onclick="trackEvent('cta_click', { tier: 'done_for_you', location: 'pricing' }); trackEvent('booking_initiated', { tier: 'done_for_you' })"
+          >
+            Book Done-For-You Setup
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--color-surface);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pricing-card-featured {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+  }
+
+  .pricing-badge {
+    background: var(--color-primary);
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .pricing-card-header {
+    padding: 40px 32px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .pricing-tier-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--color-text-muted);
+  }
+
+  .pricing-amount {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .pricing-currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  .pricing-value {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .pricing-period {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+
+  .pricing-card-body {
+    padding: 32px;
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .pricing-features li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .pricing-features li:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-features li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: 700;
+  }
+
+  .guarantee-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(52, 211, 153, 0.08);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .guarantee-icon {
+    font-size: 1.5rem;
+    color: var(--color-guarantee);
+    flex-shrink: 0;
+  }
+
+  .guarantee-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .guarantee-text strong {
+    color: var(--color-guarantee);
+    font-size: 0.95rem;
+  }
+
+  .guarantee-text span {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .pricing-cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+</style>

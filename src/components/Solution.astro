@@ -1,0 +1,144 @@
+---
+/**
+ * Solution section — who the founder is, why they can solve it
+ */
+---
+
+<section id="solution" class="section solution">
+  <div class="container">
+    <div class="solution-inner">
+      <div class="solution-text">
+        <h2 class="section-title" style="text-align: left;">
+          Built OpenClaw. Now I'll Set It Up For You.
+        </h2>
+        <p class="solution-body">
+          I'm the creator of OpenClaw. I've done hundreds of installations across
+          every platform and configuration. Instead of spending hours troubleshooting
+          alone, book a session with me and I'll get your AI agent running — guaranteed.
+        </p>
+        <ul class="solution-list">
+          <li>Full installation and configuration</li>
+          <li>WhatsApp, Telegram, Discord — any channel connected</li>
+          <li>Custom SOUL.md personality setup</li>
+          <li>Skills installed and tested</li>
+          <li>You walk away with a working agent</li>
+        </ul>
+        <a
+          href="#pricing"
+          class="btn btn-primary"
+          onclick="trackEvent('cta_click', { tier: 'solution', location: 'solution' })"
+        >
+          See Pricing
+        </a>
+      </div>
+      <div class="solution-visual">
+        <div class="terminal-mock">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> openclaw start</p>
+            <p class="success">Agent is running on WhatsApp</p>
+            <p class="success">SOUL.md loaded: friendly-assistant</p>
+            <p class="success">3 skills active: calendar, weather, notes</p>
+            <p class="muted">Ready to chat. Session complete.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solution-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .solution-body {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .solution-list {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .solution-list li {
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--color-text-muted);
+  }
+
+  .solution-list li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: 700;
+  }
+
+  .terminal-mock {
+    background: #0d0d14;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.875rem;
+  }
+
+  .terminal-header {
+    background: var(--color-surface-elevated);
+    padding: 12px 16px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background: #ff5f57; }
+  .dot.yellow { background: #febc2e; }
+  .dot.green { background: #28c840; }
+
+  .terminal-body {
+    padding: 20px;
+    line-height: 2;
+  }
+
+  .terminal-body .prompt {
+    color: var(--color-accent);
+    margin-right: 8px;
+  }
+
+  .terminal-body .success {
+    color: var(--color-success);
+  }
+
+  .terminal-body .muted {
+    color: var(--color-text-muted);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .solution-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .section-title {
+      text-align: center !important;
+    }
+  }
+</style>

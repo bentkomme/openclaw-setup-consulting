@@ -1,0 +1,96 @@
+---
+/**
+ * FAQ section — common objections
+ * Spec: What if it doesn't work? What do I need to prepare? Which channels are supported?
+ */
+const faqs = [
+  {
+    question: 'What if it doesn\'t work after the session?',
+    answer: 'The Done-For-You tier comes with a 100% Satisfaction Guarantee. If your agent isn\'t running perfectly after our session, you get a full refund. For Setup Call clients, I\'ll stay on the call until your agent is working.',
+  },
+  {
+    question: 'What do I need to prepare before the session?',
+    answer: 'After booking you\'ll receive a prep checklist email. The basics: make sure you have Node.js v22+ installed, your messaging platform account ready (WhatsApp, Telegram, or Discord), and any API keys you want to use (OpenAI or Anthropic). For Done-For-You clients, you\'ll also need a remote access tool like AnyDesk installed.',
+  },
+  {
+    question: 'Which messaging channels are supported?',
+    answer: 'OpenClaw supports WhatsApp, Telegram, Discord, and Slack. During your session, we\'ll connect whichever channel you prefer. Additional channels can be added later.',
+  },
+  {
+    question: 'How long does the setup actually take?',
+    answer: 'A Setup Call is 60 minutes. Most clients are fully running within 45 minutes. The Done-For-You option typically takes 1-2 hours of my remote work, followed by your 30-minute handoff call.',
+  },
+  {
+    question: 'Do I need to be technical?',
+    answer: 'Not at all. That\'s the whole point. Whether you choose the guided call or the done-for-you option, I handle the technical complexity. You just need a computer and an internet connection.',
+  },
+  {
+    question: 'Can I change my mind after booking?',
+    answer: 'Yes. You can reschedule or cancel any booking through Cal.com. The Done-For-You tier also includes our satisfaction guarantee.',
+  },
+];
+---
+
+<section id="faq" class="section faq">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">
+      Everything you need to know before booking.
+    </p>
+    <div class="faq-list">
+      {faqs.map((faq) => (
+        <details class="faq-item">
+          <summary class="faq-question">{faq.question}</summary>
+          <p class="faq-answer">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-question {
+    padding: 24px 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '-';
+  }
+
+  .faq-answer {
+    padding: 0 0 24px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+/**
+ * Problem section — the pain of failing to self-install OpenClaw
+ */
+const problems = [
+  {
+    icon: '&#x26A0;',
+    title: 'Node.js Errors',
+    description: 'Version mismatches, missing dependencies, cryptic terminal output that means nothing to non-developers.',
+  },
+  {
+    icon: '&#x2699;',
+    title: 'Config Complexity',
+    description: 'SOUL.md files, gateway connections, skill installations, API key management — it adds up fast.',
+  },
+  {
+    icon: '&#x1F504;',
+    title: 'Breaking Updates',
+    description: 'You finally got it working, then an update breaks everything. Back to square one.',
+  },
+];
+---
+
+<section id="problem" class="section problem">
+  <div class="container">
+    <h2 class="section-title">Setting Up OpenClaw Shouldn't Be This Hard</h2>
+    <p class="section-subtitle">
+      You found the perfect AI agent platform. But between Node.js, config files,
+      and messaging integrations, you're stuck before you start.
+    </p>
+    <div class="problem-grid">
+      {problems.map((p) => (
+        <div class="problem-card">
+          <div class="problem-icon" set:html={p.icon} />
+          <h3 class="problem-card-title">{p.title}</h3>
+          <p class="problem-card-desc">{p.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem {
+    background: var(--color-surface);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .problem-card {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+  }
+
+  .problem-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .problem-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .problem-card-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .problem-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+/**
+ * Footer — contact, links
+ */
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">OpenClaw Setup</p>
+        <p class="footer-tagline">Expert AI agent setup, done right.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/openclaw" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:setup@openclaw.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} OpenClaw. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: 48px 0 24px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .footer-tagline {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-text);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding-top: 24px;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-links {
+      gap: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+/**
+ * OpenClaw Setup Consulting — Landing Page
+ *
+ * Spec: spec_phase1_landing_booking_v1 (v2, approved)
+ * Single-page marketing site with sections:
+ *   Hero, Problem, Solution, Pricing, How It Works, FAQ, Footer
+ *
+ * Booking: Cal.com + Stripe
+ * Analytics: Plausible with tagged events
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Problem from '../components/Problem.astro';
+import Solution from '../components/Solution.astro';
+import Pricing from '../components/Pricing.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="OpenClaw Setup Consulting — Get Your AI Agent Running in One Session"
+  description="Skip the technical headaches. Book a session with the OpenClaw founder and walk away with a fully configured AI agent. Setup Call ($149) or Done-For-You ($399)."
+>
+  <Hero />
+  <Problem />
+  <Solution />
+  <Pricing />
+  <HowItWorks />
+  <FAQ />
+  <Footer />
+</BaseLayout>
